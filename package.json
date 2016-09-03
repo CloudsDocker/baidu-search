@@ -1,0 +1,30 @@
+{
+  "name": "baidu-search",
+  "version": "0.1.2",
+  "description": "module to conduct search in http://www.baidu.com",
+  "main": "baidu.js",
+  "scripts": {
+    "test": "baidu-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CloudsDocker/baidu-search.git"
+  },
+  "keywords": [
+    "baidu",
+    "searchEngine",
+    "search"
+  ],
+  "author": "todd zhang phray.zhang@gmail.com wechat: helloworld_2000",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CloudsDocker/baidu-search/issues"
+  },
+  "homepage": "https://github.com/CloudsDocker/baidu-search#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "cheerio": "^0.22.0",
+    "request": "^2.74.0",
+    "util": "^0.10.3"
+  }
+}

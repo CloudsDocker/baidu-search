@@ -1,0 +1,109 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/todzhang/dev/git/baidu-search',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/todzhang/.npm/baidu-search/0.1.2/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/todzhang/.npm correctMkdir not in flight; initializing
+10 verbose tar pack [ '/Users/todzhang/.npm/baidu-search/0.1.2/package.tgz',
+10 verbose tar pack   '/Users/todzhang/dev/git/baidu-search' ]
+11 verbose tarball /Users/todzhang/.npm/baidu-search/0.1.2/package.tgz
+12 verbose folder /Users/todzhang/dev/git/baidu-search
+13 info prepublish baidu-search@0.1.2
+14 verbose addLocalTarball adding from inside cache /Users/todzhang/.npm/baidu-search/0.1.2/package.tgz
+15 verbose correctMkdir /Users/todzhang/.npm correctMkdir not in flight; initializing
+16 silly cache afterAdd baidu-search@0.1.2
+17 verbose afterAdd /Users/todzhang/.npm/baidu-search/0.1.2/package/package.json not in flight; writing
+18 verbose correctMkdir /Users/todzhang/.npm correctMkdir not in flight; initializing
+19 verbose afterAdd /Users/todzhang/.npm/baidu-search/0.1.2/package/package.json written
+20 silly publish { name: 'baidu-search',
+20 silly publish   version: '0.1.2',
+20 silly publish   description: 'module to conduct search in http://www.baidu.com',
+20 silly publish   main: 'baidu.js',
+20 silly publish   scripts: { test: 'baidu-test.js' },
+20 silly publish   repository:
+20 silly publish    { type: 'git',
+20 silly publish      url: 'git+https://github.com/CloudsDocker/baidu-search.git' },
+20 silly publish   keywords: [ 'baidu', 'searchEngine', 'search' ],
+20 silly publish   author: { name: 'todd zhang phray.zhang@gmail.com wechat: helloworld_2000' },
+20 silly publish   license: 'MIT',
+20 silly publish   bugs: { url: 'https://github.com/CloudsDocker/baidu-search/issues' },
+20 silly publish   homepage: 'https://github.com/CloudsDocker/baidu-search#readme',
+20 silly publish   dependencies:
+20 silly publish    { chai: '^3.5.0',
+20 silly publish      cheerio: '^0.22.0',
+20 silly publish      request: '^2.74.0',
+20 silly publish      util: '^0.10.3' },
+20 silly publish   readme: '# Objective\nmodule to conduct search in http://www.baidu.com\n\n# About baidu\nbaidu (http://www.baidu.com) is the largest search engine in China, it\'s google\'s equivalent here. It provide not only serach engine, but also Wikipedia like knowledge sharing, social networking, etc.\n\n\n# How to test this lib\nThis lib is based on TDD (Test Driven Development), so you can look at the test cases first, which is the file `./test/unittest.js`, you can run the test as below\n```sh\ncd ./test/\nnode unittest.js\n```\nIf there are failures, you\'ll see Assert Excpetioin, below is one sample. Otherwise, no errors means all tests passed.\n```sh\nassert.js:90\n  throw new assert.AssertionError({\n  ^\nAssertionError: false == true\n    at /Users/todzhang/dev/git/baidu-search/test/unittest.js:50:2\n    at Request._callback (/Users/todzhang/dev/git/baidu-search/baidu.js:60:9)\n  xxxxx\n```\n\n\n# How to use this lib\nFirstly load this library via npm, for example\n```sh\nnpm install baidu-search -save\n```\n\nSecondly, you should import this library in your source, e.g. \n```javascript\nvar baidu = require(\'baidu\')\n```\n\nNext, you can use following approaches to make a search:\n```javascript\nbaidu(\'Microsoft\',((err,res)=>{\n    console.log(\'Get title of first matched result:\'+res.links[0].title)\n    console.log(\'Get link of second matched result:\'+res.links[1].link)\n\n    console.log(\'print all matched results:\')\n\n    res.links.forEach(function(item,idx){\n        console.log(\' title :\'+ item.title)\n    })\n\n    }))\n```\n# How to contact me\nYou can find my contact via npm listed email or wechat at helloworld_2000\n',
+20 silly publish   readmeFilename: 'README.md',
+20 silly publish   gitHead: '2b5f2518c5eb8237065ab3f4ed3a87fbb3ccb40d',
+20 silly publish   _id: 'baidu-search@0.1.2',
+20 silly publish   _shasum: 'ffe362d81e52ee21fcf17654da93f27ba46dc111',
+20 silly publish   _from: '.' }
+21 verbose getPublishConfig undefined
+22 silly mapToRegistry name baidu-search
+23 silly mapToRegistry using default registry
+24 silly mapToRegistry registry https://registry.npmjs.org/
+25 silly mapToRegistry data Result {
+25 silly mapToRegistry   raw: 'baidu-search',
+25 silly mapToRegistry   scope: null,
+25 silly mapToRegistry   name: 'baidu-search',
+25 silly mapToRegistry   rawSpec: '',
+25 silly mapToRegistry   spec: 'latest',
+25 silly mapToRegistry   type: 'tag' }
+26 silly mapToRegistry uri https://registry.npmjs.org/baidu-search
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading /Users/todzhang/.npm/baidu-search/0.1.2/package.tgz
+29 verbose request uri https://registry.npmjs.org/baidu-search
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 16:34:05
+32 verbose request using bearer token for auth
+33 verbose request id ba865b1595b31d7d
+34 http request PUT https://registry.npmjs.org/baidu-search
+35 http 403 https://registry.npmjs.org/baidu-search
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '95',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Sat, 03 Sep 2016 08:34:07 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-nrt6124-NRT',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1472891646.038769,VS0,VE1733',
+36 verbose headers   vary: 'Accept-Encoding' }
+37 verbose request invalidating /Users/todzhang/.npm/registry.npmjs.org/baidu-search on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: "You cannot publish over the previously published version 0.1.2." : baidu-search
+39 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+39 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+39 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+39 verbose stack     at emitTwo (events.js:87:13)
+39 verbose stack     at Request.emit (events.js:172:7)
+39 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+39 verbose stack     at emitOne (events.js:82:20)
+39 verbose stack     at Request.emit (events.js:169:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+40 verbose statusCode 403
+41 verbose pkgid baidu-search
+42 verbose cwd /Users/todzhang/dev/git/baidu-search
+43 error Darwin 15.6.0
+44 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+45 error node v4.4.7
+46 error npm  v2.15.8
+47 error code E403
+48 error "You cannot publish over the previously published version 0.1.2." : baidu-search
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]

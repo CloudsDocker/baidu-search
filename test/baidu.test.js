@@ -1,84 +1,51 @@
-//var baiduIt=require('baidu-search')
 
-
-// function baidu(){
-//     console.log("functionalities are under avtive development right now, pleaes be expected this will be ready shortly!")
-// }
-//
-// baidu()
-// console.log('test successeed!')
+// to run this test, be sure to use '-w' option in mocha, e.g. mocha ./test/baidu.test.js -w
+// this TBD
 
 var chai = require('chai')
+var assert = require('assert')
 var baiduSearch = require('./../baidu')
 var expect = chai.expect
 
 
 
 describe("my first test", function(){
-  it('*. kick start dummy test method',function(){
-    console.log('*. kick start dummy ')
-    expect(0).to.equal(0)
-  });
 
-  it('get baidu library init',function(){
+
+  it('get baidu search start',function(done){
     var query="google"
-    console.log('*. kick start search ')
+    // console.log('*. kick start search ')
 
-    // baiduSearch(query,function(err,res){})
+    var done=function (){
+      console.log('====== 1st Test passed !!  (get baidu search start) ======')
+    }
 
+    baiduSearch(query, function (err, res) {
+      var allLinks = []
+      // assert.ifError(err)
+      console.log('1: length is :'+allLinks.length)
+      assert(allLinks.length === 10)
+    });
+    done();
 
-    // baiduSearch(query, function (err, res) {
-    //   console.log('------------');
-    //   assert.ifError(err)
-    //   allLinks = allLinks.concat(res.links)
-    //   console.log(allLinks);
-    // });
+  }),
+  it('get first result',function(done){
+    var query="microsoft"
 
-  new Promise((resolve,reject)=>{
-    console.log('*. 111111 ')
-       baiduSearch(searchString,(err,res)=>{
-         console.log('*. 22222 ')
-         if(err){
-           reject({
-             reason: 'A search error has occured :'
+    var done=function (){
+      console.log('====== 2nd Test passed !!  (get first result) ======')
+    }
 
-           })
-         }else if (res.links.length===0){
-             reject({
-               reason: 'No results found:'
-               // console.log('No results found:');
-             })
-           } else {
-             console.log('=======:'+res.links[0].href);
-             resolve(res.links[0].href)
-           }
-         })
-     }).then((url)=>{
-      console.log('*. Found result:'+url);
-    }).catch((error)=>{
-      console.log('A search error has occured 2222:'+ error);
-    })
-    // expect(0).to.equal(0)
+    baiduSearch(query, function (err, res) {
+      console.log('index:'+res.links[0].title.toLowerCase().indexOf(query.toLowerCase()))
+      console.log('index2:'+res.links[0].title.toLowerCase().indexOf(query.toLowerCase())>-1)
+      assert(res.links[0].title.toLowerCase().indexOf(query.toLowerCase())>-1)
+      
+    });
+
+    done();
+
   })
-})
-// ,
 
-// search(){
-//  return new Promise((resolve,reject)=>{
-//    baiduSearch(searchString,(err,res)=>{
-//      if(err){
-//        reject({
-//          reason: 'A search error has occured :'
-//
-//        })
-//      }else if (res.links.length===0){
-//          reject({
-//            reason: 'No results found:'
-//            // console.log('No results found:');
-//          })
-//        } else {
-//          console.log('=======:'+res.links[0].href);
-//          resolve(res.links[0].href)
-//        }
-//      })
-//  })}
+})
+

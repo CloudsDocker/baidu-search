@@ -10,7 +10,6 @@ var baseURL="http://www.baidu.com/s?wd=%s&pn=%s"
 
 
 function baidu(keyWord,beginPage, callbackFun){
-    console.log("* functionalities are under avtive development right now, pleaes be expected this will be ready shortly!")
 
     var startIndex = 0
     if (typeof callbackFun === 'undefined') {
@@ -22,7 +21,6 @@ function baidu(keyWord,beginPage, callbackFun){
     }
 
     var enrichedURL = util.format(baseURL,keyWord,startIndex)
-    console.log('*. new url is :' + enrichedURL)
 
     var options = {
       url: enrichedURL,
@@ -30,9 +28,7 @@ function baidu(keyWord,beginPage, callbackFun){
     }
 
     request(options, function(err,resp,body){
-      console.log("*.---- Called request-------");
       if ((err == null) && resp.statusCode === 200) {
-        console.log('*. Request returned successfully')
         var $ = cheerio.load(body)
 
         var res = {
@@ -40,9 +36,8 @@ function baidu(keyWord,beginPage, callbackFun){
           keyWord: keyWord,
           beginPage: beginPage,
           links: [],
-          $: $
-          // ,
-          // body: body
+          $: $,
+          body: body
         }
 
 
@@ -58,8 +53,6 @@ function baidu(keyWord,beginPage, callbackFun){
         $(descElem).find('div').remove()
           item.description = $(descElem).text()
 
-        console.log('*.  Adding item : '+ item)
-        console.log('*.  Adding item : '+ JSON.stringify(item))
         res.links.push(item)
       })
 
@@ -71,7 +64,7 @@ function baidu(keyWord,beginPage, callbackFun){
         callbackFun(new Error('Error on response' + (resp ? ' (' + resp.statusCode + ')' : '') + ':' + err + ' : ' + body), null, null)
        }
     })
-    console.log('*. Ended')
+    // console.log('*. Ended')
 }
 
 module.exports=baidu

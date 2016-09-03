@@ -9,12 +9,12 @@ var baseURL="http://www.baidu.com/s?wd=%s&pn=%s"
 
 
 
-function baidu(keyWord,beginPage, callback){
+function baidu(keyWord,beginPage, callbackFun){
     console.log("* functionalities are under avtive development right now, pleaes be expected this will be ready shortly!")
 
     var startIndex = 0
-    if (typeof callback === 'undefined') {
-      callback = beginPage
+    if (typeof callbackFun === 'undefined') {
+      callbackFun = beginPage
     } else {
       if(beginPage>0){
         startIndex = (beginPage-1)*10
@@ -40,8 +40,9 @@ function baidu(keyWord,beginPage, callback){
           keyWord: keyWord,
           beginPage: beginPage,
           links: [],
-          $: $,
-          body: body
+          $: $
+          // ,
+          // body: body
         }
 
 
@@ -55,17 +56,20 @@ function baidu(keyWord,beginPage, callback){
         }
 
         $(descElem).find('div').remove()
-        item.description = $(descElem).text()
+          item.description = $(descElem).text()
 
+        console.log('*.  Adding item : '+ item)
+        console.log('*.  Adding item : '+ JSON.stringify(item))
         res.links.push(item)
       })
 
-        console.log('*. res is :' + JSON.stringify(res));
-
+        // console.log('*. res is :' + JSON.stringify(res));
+        callbackFun(null,res)
       }
       else {
         console.log('*. Error returned');
-      }
+        callbackFun(new Error('Error on response' + (resp ? ' (' + resp.statusCode + ')' : '') + ':' + err + ' : ' + body), null, null)
+       }
     })
     console.log('*. Ended')
 }

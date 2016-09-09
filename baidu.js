@@ -3,7 +3,6 @@ var request = require('request');
 var http = require('http');
 var util = require('util')
 var cheerio = require('cheerio')
-var querystring = require('querystring')
 
 var baseURL="http://www.baidu.com/s?wd=%s&pn=%s"
 
@@ -56,7 +55,6 @@ function baidu(keyWord,beginPage, callbackFun){
         res.links.push(item)
       })
 
-        // console.log('*. res is :' + JSON.stringify(res));
         callbackFun(null,res)
       }
       else {
@@ -64,7 +62,6 @@ function baidu(keyWord,beginPage, callbackFun){
         callbackFun(new Error('Error on response' + (resp ? ' (' + resp.statusCode + ')' : '') + ':' + err + ' : ' + body), null, null)
        }
     })
-    // console.log('*. Ended')
 }
 
 module.exports=baidu

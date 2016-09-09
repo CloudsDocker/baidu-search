@@ -1,6 +1,6 @@
 {
   "name": "baidu-search",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "module to conduct search in http://www.baidu.com",
   "main": "baidu.js",
   "scripts": {

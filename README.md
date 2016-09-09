@@ -24,23 +24,21 @@ AssertionError: false == true
 
 
 # How to use this lib
-Firstly load this library via npm, for example
+Firstly if not, please firstly load this library via npm , for example
 ```sh
 npm install baidu-search -save
 ```
 
-Secondly, you should import this library in your source, e.g. 
-```javascript
-var baidu = require('baidu')
-```
+Secondly, you should import this library in your source and then you can use following approaches to start a search:
 
-Next, you can use following approaches to make a search:
 ```javascript
+var baidu = require('baidu-search')
+
 baidu('Microsoft',((err,res)=>{
-    console.log('Get title of first matched result:'+res.links[0].title)
-    console.log('Get link of second matched result:'+res.links[1].link)
+    console.log('Get title of first matched result,标题是:'+res.links[0].title)
+    console.log('Get link of second matched result,链接是:'+res.links[1].link)
 
-    console.log('print all matched results:')
+    console.log('print all matched results,如下是所有链接:')
 
     res.links.forEach(function(item,idx){
         console.log(' title :'+ item.title)
